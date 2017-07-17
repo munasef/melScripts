@@ -1,0 +1,7 @@
+for($o in `ls -sl`){
+    if(!attributeExists("vrayColorId",$o)){ //prevents fucking up old ids
+            vray addAttributesFromGroup $o "vray_material_id" 1;
+            vector $v = `hsv_to_rgb <<rand(1),1,1>>`;    
+            setAttr ($o+".vrayColorId") -type "double3" ($v.x) ($v.y) ($v.z);
+    }
+}
