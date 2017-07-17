@@ -1,0 +1,43 @@
+# melScripts
+
+# instanced leaves script example with computed angular velocity and rotation 
+
+
+
+/// Creation 
+
+//create Object ID (based on number of used instances) 
+.objectID = int(rand(0,7.99));
+.instanceID = objectId;
+
+//scale different instances
+if (.objectID>= 4)
+    .scalePP = $scale * rand (.9, 1.3) * .6;
+else
+    .scalePP = $scale * rand(.4);
+    
+    
+// create rotation 
+.rotationPP = <<rand (0,120),rand(0,120),rand(0,120)>>;
+
+// create angularVelocity
+.angularVelocityPP = <<rand(0,10),10,-15>>;
+
+//create Mass
+.mass = rand(.2,.9);
+
+
+//pos
+vector $pos = .position
+
+//VELOCITY
+vector $vel = .velocity;
+float $velX = $vel.x;
+float $velY = $vel.y + rand (3,6);
+float $velZ = $vel.z + rand(-.5,-3);
+.velocity = <<$velX,$velY,$velZ>>;
+
+//set lifespannPP
+
+.lifespannPP = 100;
+
