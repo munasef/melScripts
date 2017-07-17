@@ -1,0 +1,14 @@
+string $nuc[] = `ls "*nucleus*"`; //assumes it hasn't been renamed
+if(size($nuc)>0)
+{
+    $mode = `getAttr ($nuc[0]+".enable")`;
+    $mode = ($mode)?0:1;
+    
+    for($i=0;$i<size($nuc);$i++)
+    {
+        setAttr ($nuc[$i]+".enable") $mode;
+        print("All nucleuses "+(($mode)?"on":"off"));
+    }
+}else{
+    print("No nucleus found");
+}
