@@ -41,3 +41,29 @@ float $velZ = $vel.z + rand(-.5,-3);
 
 .lifespannPP = 100;
 
+
+
+
+
+
+///runtime before Dynamics
+
+
+// angularVeloctiy
+float $pi = 3.14
+.angularVelocityPP += frame -1000
+
+//rotationPP
+if(mag(.velocity) >4
+{
+    .rotationPP+= (frame - 1000) * ($pi);
+}
+else 
+{
+    rotationPP*= 1;
+}
+
+//damp velocity
+
+if (mag(.velocity)>20)
+    .velocity *= <<.4,-.4,.4>>;
